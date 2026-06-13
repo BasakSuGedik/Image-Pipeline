@@ -1,0 +1,70 @@
+================================================================
+  CENG-479 Parallel Programming — Submission 2
+  Adaptive Parallel Image Processing Pipeline
+  Basak Su Gedik   — 21118080072
+  Salih Kirlioglu  — 21118080019
+  Gazi Universitesi, Spring 2026
+  Modes: Sequential | Naive | Adaptive | Adaptive+Balanced
+  Filters: Gaussian Blur > Sobel Edge > Brightness/Contrast
+  Runs per test: 5 (+ 1 warm-up)
+================================================================
+
+--- Resolution: 512x512 ---
+  Mode 1  Sequential           avg=   60 ms  threads=1  balance=1,000
+  Mode 2  Naive Parallel       avg=   22 ms  threads=4  balance=  N/A  
+  Mode 3  Adaptive Only        avg=   23 ms  threads=2  balance=  N/A  
+  Mode 4  Adaptive+Balanced    avg=   23 ms  threads=2  balance=1,008
+
+  Speedup vs Sequential:
+    Sequential           : 1,00x speedup  (1 threads)
+    Naive Parallel       : 2,73x speedup  (4 threads)
+    Adaptive Only        : 2,61x speedup  (2 threads)
+    Adaptive+Balanced    : 2,61x speedup  (2 threads)
+
+--- Resolution: 1024x1024 ---
+  Mode 1  Sequential           avg=  181 ms  threads=1  balance=1,000
+  Mode 2  Naive Parallel       avg=   82 ms  threads=4  balance=  N/A  
+  Mode 3  Adaptive Only        avg=  103 ms  threads=2  balance=  N/A  
+  Mode 4  Adaptive+Balanced    avg=  103 ms  threads=2  balance=1,122
+
+  Speedup vs Sequential:
+    Sequential           : 1,00x speedup  (1 threads)
+    Naive Parallel       : 2,21x speedup  (4 threads)
+    Adaptive Only        : 1,76x speedup  (2 threads)
+    Adaptive+Balanced    : 1,76x speedup  (2 threads)
+
+--- Resolution: 2048x2048 ---
+  Mode 1  Sequential           avg=  737 ms  threads=1  balance=1,000
+  Mode 2  Naive Parallel       avg=  339 ms  threads=4  balance=  N/A  
+  Mode 3  Adaptive Only        avg=  307 ms  threads=4  balance=  N/A  
+  Mode 4  Adaptive+Balanced    avg=  341 ms  threads=4  balance=1,431
+
+  Speedup vs Sequential:
+    Sequential           : 1,00x speedup  (1 threads)
+    Naive Parallel       : 2,17x speedup  (4 threads)
+    Adaptive Only        : 2,40x speedup  (4 threads)
+    Adaptive+Balanced    : 2,16x speedup  (4 threads)
+
+--- Resolution: 3840x2160 (4K) ---
+  Mode 1  Sequential           avg= 1451 ms  threads=1  balance=1,000
+  Mode 2  Naive Parallel       avg=  617 ms  threads=4  balance=  N/A  
+  Mode 3  Adaptive Only        avg=  628 ms  threads=4  balance=  N/A  
+  Mode 4  Adaptive+Balanced    avg=  644 ms  threads=4  balance=1,261
+
+  Speedup vs Sequential:
+    Sequential           : 1,00x speedup  (1 threads)
+    Naive Parallel       : 2,35x speedup  (4 threads)
+    Adaptive Only        : 2,31x speedup  (4 threads)
+    Adaptive+Balanced    : 2,25x speedup  (4 threads)
+
+================================================================
+  SUMMARY TABLE — Average Execution Time (ms)
+================================================================
+  Resolution                Seq    Naive   Adapt. Adpt+Bal
+  --------------------------------------------------------
+  512x512                    60       22       23       23
+  1024x1024                 181       82      103      103
+  2048x2048                 737      339      307      341
+  3840x2160 (4K)           1451      617      628      644
+
+Benchmark complete.
